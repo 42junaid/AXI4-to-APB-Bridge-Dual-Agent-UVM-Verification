@@ -166,43 +166,49 @@ axi2apb/
 
 ## 🚀 How to Run
 
-### Prerequisites
-- Synopsys VCS (L-2016.06 or later)
-- UVM 1.2
-- Linux environment
-
-### Compile
 ```bash
 cd sim/
 make compile TEST=<test_name>
-### 🧪 Available Tests
-*## Command	Description
-|make sim TEST=axi2apb_test	| Basic Test: 1 Write + 1 Read + 5 Random (7 transactions)|
-|make sim TEST=axi2apb_write_wait_test	| Directed: Write with 3 wait cycles|
-|make sim TEST=axi2apb_read_wait_test	| Directed: Read with 3 wait cycles|
-|make sim TEST=axi2apb_rready_delay_test |	Directed: Read with RREADY delayed 3 cycles|
-|make sim TEST=axi2apb_bready_delay_test	| Directed: Write with BREADY delayed 3 cycles|
-|make sim TEST=axi2apb_all_directed_test	| All 4 Directed Tests in one run|
+```
 
-##🔍 Key RTL Observations Verified
+### 🧪 Available Tests
+
+| Command | Description |
+|---|---|
+| `make sim TEST=axi2apb_test` | Basic Test: 1 Write + 1 Read + 5 Random (7 transactions) |
+| `make sim TEST=axi2apb_write_wait_test` | Directed: Write with 3 wait cycles |
+| `make sim TEST=axi2apb_read_wait_test` | Directed: Read with 3 wait cycles |
+| `make sim TEST=axi2apb_rready_delay_test` | Directed: Read with RREADY delayed 3 cycles |
+| `make sim TEST=axi2apb_bready_delay_test` | Directed: Write with BREADY delayed 3 cycles |
+| `make sim TEST=axi2apb_all_directed_test` | All 4 Directed Tests in one run |
+
+---
+
+## 🔍 Key RTL Observations Verified
+
 From the provided RTL specification, the following behaviors were verified:
 
-#	RTL Behavior	Verification Method
-1	IDLE state gives priority to ARVALID over AWVALID	Observed in random test
-2	Write accepted only when both AWVALID and WVALID are high	Verified by timing
-3	Write waits in WAIT_W_PREADY while PREADY=0	Directed Test 1
-4	Read waits in WAIT_R_PREADY while PREADY=0	Directed Test 2
-5	RVALID and RLAST asserted for single read	All read tests
-6	BID = AWID and BUSER = AWUSER	All write tests
-7	BRESP/RRESP = OKAY by default (PSLVERR ignored)	Pending
-8	No burst support (single beat only)	Pending
-9	WSTRB/WLAST ignored by FSM	Pending
-10	Async active-low reset	Reset behavior
-🛠️ Tools & Methodology
-Item	Details
-Simulator	Synopsys VCS L-2016.06
-Methodology	UVM 1.2
-Language	SystemVerilog
-Waveform	VPD (waveform.vpd)
-Coverage	VCS Coverage (-cm line+cond+tgl+fsm)
+| # | RTL Behavior | Verification Method |
+|---|---|---|
+| 1 | IDLE state gives priority to ARVALID over AWVALID | Observed in random test |
+| 2 | Write accepted only when both AWVALID and WVALID are high | Verified by timing |
+| 3 | Write waits in WAIT_W_PREADY while PREADY=0 | Directed Test 1 |
+| 4 | Read waits in WAIT_R_PREADY while PREADY=0 | Directed Test 2 |
+| 5 | RVALID and RLAST asserted for single read | All read tests |
+| 6 | BID = AWID and BUSER = AWUSER | All write tests |
+| 7 | BRESP/RRESP = OKAY by default (PSLVERR ignored) | Pending |
+| 8 | No burst support (single beat only) | Pending |
+| 9 | WSTRB/WLAST ignored by FSM | Pending |
+| 10 | Async active-low reset | Reset behavior |
 
+---
+
+## 🛠️ Tools & Methodology
+
+| Item | Details |
+|---|---|
+| Simulator | Synopsys VCS L-2016.06 |
+| Methodology | UVM 1.2 |
+| Language | SystemVerilog |
+| Waveform | VPD (`waveform.vpd`) |
+| Coverage | VCS Coverage (`-cm line+cond+tgl+fsm`) |
