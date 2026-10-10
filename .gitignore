@@ -1,0 +1,40 @@
+# Simulator build artifacts
+simv
+simv.daidir/
+csrc/
+*.daidir/
+*.vpd
+*.vcd
+*.fsdb
+*.wlf
+transcript
+ucli.key
+*.log
+
+# VCS specific
+AN.DB/
+DVEfiles/
+*.vdb
+.vcsmx*
+inter.vpd
+novas.*
+verdiLog/
+
+# Coverage
+cov_work/
+*.ucdb
+
+# Editor files
+*.swp
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary
+*.tmp
+*.bak
+
