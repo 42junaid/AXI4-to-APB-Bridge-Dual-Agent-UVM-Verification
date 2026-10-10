@@ -20,53 +20,56 @@ The environment includes a **scoreboard** for transaction-level checking, **func
 ---
 
 ## 🏗️ Project Structure
+
+```
 axi2apb/
 │
-├── docs/ # Documentation
-│ └── README.md
+├── docs/                              # Documentation
+│   └── README.md
 │
-├── rtl/ # RTL source files (DUT + dependencies)
-│ ├── axi2apb.sv # Main DUT (32-bit version)
-│ ├── axi2apb_64_32.sv # 64-bit AXI → 32-bit APB version
-│ ├── axi2apb_wrap.sv # Wrapper module
-│ ├── axi_aw_buffer.sv # AXI write address FIFO
-│ ├── axi_ar_buffer.sv # AXI read address FIFO
-│ ├── axi_w_buffer.sv # AXI write data FIFO
-│ ├── axi_r_buffer.sv # AXI read data FIFO
-│ ├── axi_b_buffer.sv # AXI write response FIFO
-│ ├── axi_single_slice.sv # FIFO wrapper
-│ ├── axi_slice.sv # AXI slice
-│ ├── fifo.sv # Generic FIFO
-│ └── ...
+├── rtl/                               # RTL source files (DUT + dependencies)
+│   ├── axi2apb.sv                     # Main DUT (32-bit version)
+│   ├── axi2apb_64_32.sv               # 64-bit AXI → 32-bit APB version
+│   ├── axi2apb_wrap.sv                # Wrapper module
+│   ├── axi_aw_buffer.sv               # AXI write address FIFO
+│   ├── axi_ar_buffer.sv               # AXI read address FIFO
+│   ├── axi_w_buffer.sv                # AXI write data FIFO
+│   ├── axi_r_buffer.sv                # AXI read data FIFO
+│   ├── axi_b_buffer.sv                # AXI write response FIFO
+│   ├── axi_single_slice.sv            # FIFO wrapper
+│   ├── axi_slice.sv                   # AXI slice
+│   ├── fifo.sv                        # Generic FIFO
+│   └── ...
 │
-├── tb/ # Testbench (UVM environment)
-│ ├── axi_if.sv # AXI interface (AXI_BUS)
-│ ├── apb_if.sv # APB interface (APB_BUS)
-│ ├── axi_seq_item.sv # AXI transaction class
-│ ├── apb_seq_item.sv # APB transaction class
-│ ├── axi_sequencer.sv # AXI sequencer
-│ ├── apb_sequencer.sv # APB sequencer
-│ ├── axi_driver.sv # AXI Master driver
-│ ├── apb_driver.sv # APB Slave driver
-│ ├── axi_monitor.sv # AXI monitor
-│ ├── apb_monitor.sv # APB monitor
-│ ├── axi_agent.sv # AXI agent
-│ ├── apb_agent.sv # APB agent
-│ ├── axi2apb_scoreboard.sv # Scoreboard (comparison)
-│ ├── axi2apb_coverage.sv # Functional coverage
-│ ├── axi2apb_env.sv # Environment
-│ ├── axi2apb_seq.sv # Sequences
-│ ├── axi2apb_base_test.sv # Base test
-│ ├── axi2apb_test.sv # All test classes
-│ ├── axi2apb_pkg.sv # Package (includes all classes)
-│ └── tb_top.sv # Top testbench module
+├── tb/                                # Testbench (UVM environment)
+│   ├── axi_if.sv                      # AXI interface (AXI_BUS)
+│   ├── apb_if.sv                      # APB interface (APB_BUS)
+│   ├── axi_seq_item.sv                # AXI transaction class
+│   ├── apb_seq_item.sv                # APB transaction class
+│   ├── axi_sequencer.sv               # AXI sequencer
+│   ├── apb_sequencer.sv               # APB sequencer
+│   ├── axi_driver.sv                  # AXI Master driver
+│   ├── apb_driver.sv                  # APB Slave driver
+│   ├── axi_monitor.sv                 # AXI monitor
+│   ├── apb_monitor.sv                 # APB monitor
+│   ├── axi_agent.sv                   # AXI agent
+│   ├── apb_agent.sv                   # APB agent
+│   ├── axi2apb_scoreboard.sv          # Scoreboard (comparison)
+│   ├── axi2apb_coverage.sv            # Functional coverage
+│   ├── axi2apb_env.sv                 # Environment
+│   ├── axi2apb_seq.sv                 # Sequences
+│   ├── axi2apb_base_test.sv           # Base test
+│   ├── axi2apb_test.sv                # All test classes
+│   ├── axi2apb_pkg.sv                 # Package (includes all classes)
+│   └── tb_top.sv                      # Top testbench module
 │
-├── sim/ # Simulation
-│ ├── build.flist # File list for compilation
-│ ├── makefile # Makefile for VCS
-│ └── out/ # Simulation outputs
+├── sim/                               # Simulation
+│   ├── build.flist                    # File list for compilation
+│   ├── makefile                       # Makefile for VCS
+│   └── out/                           # Simulation outputs
 │
-└── README.md # This file
+└── README.md                          # This file
+
 ## 📁 Files Description
 
 ### Interfaces
