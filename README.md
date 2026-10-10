@@ -175,14 +175,14 @@ axi2apb/
 ```bash
 cd sim/
 make compile TEST=<test_name>
-##🧪 Available Tests
-*Command	Description
-make sim TEST=axi2apb_test	| Basic Test: 1 Write + 1 Read + 5 Random (7 transactions)
-make sim TEST=axi2apb_write_wait_test	| Directed: Write with 3 wait cycles
-make sim TEST=axi2apb_read_wait_test	| Directed: Read with 3 wait cycles
-make sim TEST=axi2apb_rready_delay_test |	Directed: Read with RREADY delayed 3 cycles
-make sim TEST=axi2apb_bready_delay_test	| Directed: Write with BREADY delayed 3 cycles
-make sim TEST=axi2apb_all_directed_test	| All 4 Directed Tests in one run
+### 🧪 Available Tests
+*## Command	Description
+|make sim TEST=axi2apb_test	| Basic Test: 1 Write + 1 Read + 5 Random (7 transactions)|
+|make sim TEST=axi2apb_write_wait_test	| Directed: Write with 3 wait cycles|
+|make sim TEST=axi2apb_read_wait_test	| Directed: Read with 3 wait cycles|
+|make sim TEST=axi2apb_rready_delay_test |	Directed: Read with RREADY delayed 3 cycles|
+|make sim TEST=axi2apb_bready_delay_test	| Directed: Write with BREADY delayed 3 cycles|
+|make sim TEST=axi2apb_all_directed_test	| All 4 Directed Tests in one run|
 
 ##🔍 Key RTL Observations Verified
 From the provided RTL specification, the following behaviors were verified:
